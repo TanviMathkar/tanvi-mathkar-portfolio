@@ -1,0 +1,179 @@
+:root {
+    --primary: #007bff;
+    --primary-hover: #0056b3;
+    --dark: #121212;
+    --text: #333;
+    --light: #ffffff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 1. Global Reset & Smooth Scroll */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background-color: #f4f7f6;
+}
+
+/* 2. Navigation - Fixed the overlap issue */
+nav {
+    background: var(--dark);
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 20px; }
+nav ul li a { 
+    color: white; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+nav ul li a:hover { color: var(--primary); }
+
+/* 3. Hero Section - Improved text contrast and centering */
+.hero {
+    /* Use the generated image or your own as 'bg.jpg' */
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Circular Profile Image */
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+}
+
+/* 4. Layout Containers */
+.container { 
+    padding: 100px 10% 60px; /* Added top padding so nav doesn't hide titles */
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: translateY 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* 5. Buttons - Added Hover States */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px; /* Rounded pill style */
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 5px 15px rgba(0,123,255,0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    margin-left: 10px;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--dark);
+}
+
+/* 6. Form Styling */
+form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    max-width: 600px; 
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+input, textarea { 
+    padding: 15px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary);
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+/* 7. Responsive Design (Mobile) */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .container { padding: 80px 5%; }
+    nav ul { display: none; } /* Hide menu on mobile for simplicity */
+    .btn-outline { margin-left: 0; margin-top: 10px; }
+}
